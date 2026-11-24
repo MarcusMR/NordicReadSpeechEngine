@@ -1,0 +1,26 @@
+# Local Python environments and generated Python files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Models, generated audio, build outputs and local sessions
+vendor/
+assets/
+artifacts/
+dist/
+build/
+*.spec
+*.wav
+*.pcm
+session/
+sessions/
+session.json
+*.pem
+*.key
+.env
+.env.*
