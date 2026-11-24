@@ -1,17 +1,14 @@
-# Third-party software and source provenance
+# Dependencies and source provenance
 
-The engine program is GPL-3.0-or-later. Upstream components retain their own
-copyrights, licenses and notice requirements. This file is an engineering record
-for this local prototype, not an exhaustive legal assessment or a claim that a
-complete public-release corresponding-source package has been assembled.
+The engine source is [GPL-3.0-or-later](../LICENSE). Dependencies keep their
+own copyrights, licenses and notice requirements. Versions are pinned in
+[requirements.txt](../requirements.txt); supplemental texts are kept under
+[notices/](../notices/README.md). Generated inventories belong in build output.
 
-The engine dependency versions are pinned in `requirements.txt`. The reader UI
-is a separate source component and is not imported by this engine. No source or
-license text here grants a general exception from GPL obligations to a client.
+This inventory records the current source and binary provenance. It does not
+constitute a complete corresponding-source package for a binary release.
 
-Supplemental native license texts are kept in [notices/](notices/README.md).
-Environment inventories are generated build records under `artifacts/build/`,
-not maintained as static source files in that folder.
+## Recorded dependencies
 
 | Component | Version / license | Primary source |
 | --- | --- | --- |
@@ -25,6 +22,8 @@ not maintained as static source files in that folder.
 | num2words | 0.5.14 / LGPL | https://github.com/savoirfairelinux/num2words |
 | spaCy English model | 3.8.0 / model MIT, with source notices | https://github.com/explosion/spacy-models |
 
+## Native eSpeak provenance
+
 The MIT license of `espeakng-loader` applies to its loader code; it does not
 replace the native eSpeak NG library's GPL license. The loader's 0.2.4 source
 revision is `146599e29be31bf17d99f0bcb7dbb2f92aef3d95`. Its upstream workflow builds
@@ -34,11 +33,13 @@ embed an exact source revision; mapping it to the eSpeak tag is supported by
 its reported runtime version and the loader workflow, not a reproducible-build
 proof of the exact binary.
 
-Important source/build references:
+### Source and build references
 
 - Loader workflow: https://github.com/thewh1teagle/espeakng-loader/blob/146599e29be31bf17d99f0bcb7dbb2f92aef3d95/.github/workflows/build.yml
 - Loader native build script: https://github.com/thewh1teagle/espeakng-loader/blob/146599e29be31bf17d99f0bcb7dbb2f92aef3d95/build.sh
 - eSpeak source archive: https://github.com/espeak-ng/espeak-ng/archive/4870adfa25b1a32b4361592f1be8a40337c58d6c.tar.gz
+
+## Before distributing binaries
 
 Before public distribution, verify exact sources and build scripts for the
 distributed binaries, retain all applicable dependency notices, and provide the
@@ -54,3 +55,20 @@ packages. The model card contains training-data acknowledgements. Packaging
 must preserve the notices relevant to the actual shipped files; this table is
 not a replacement for that inventory. The OCR/Tesseract bundle belongs to the
 reader application's separate packaging review and is not included in this engine.
+
+## Source origin
+
+Initial source snapshot: the `speech_engine/` component and independent
+`build/build_speech_engine.py` recipe at source revision `1af5baa3c7241dbf7970ebd96f46039f7a4502b1`.
+
+This repository starts with fresh history. Reader UI, OCR, website, signing
+material, virtual environments, model files and binary build output were not
+copied. Existing GPL-3.0-or-later source licensing and supplemental notices
+were preserved. Importing the source does not change dependency licenses.
+
+The initial standalone adaptation adjusts documentation and the build recipe
+to use this repository root, adds Git exclusions, and aligns the package's
+reported version with its existing `0.2.0` project metadata. Synthesis and API
+implementation are unchanged.
+
+[Back to README](../README.md)
