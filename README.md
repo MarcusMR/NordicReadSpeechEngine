@@ -9,7 +9,7 @@ streaming and a command to save speech as a WAV file.
 - Cached models for offline use.
 - Clients handle playback, buffering, volume and saving.
 
-The engine runs independently of NordicRead and opens no audio device.
+Audio playback is handled by the calling application.
 The current API accepts connections from this computer only; remote hosting is
 not implemented.
 
@@ -51,7 +51,7 @@ Clients use that descriptor to connect to the authenticated HTTPS service.
 The model prepares in the background while the health endpoint is available.
 
 See the [API guide](docs/api.md) for connection details, endpoints and the
-[independent client example](examples/stream_to_wav.py).
+[client example](examples/stream_to_wav.py).
 
 ## Tests
 
@@ -67,7 +67,7 @@ without downloading models or opening an audio device.
 
 - [API and audio streaming](docs/api.md)
 - [Build the Windows executable](docs/building.md)
-- [Dependencies, notices and source provenance](docs/third-party.md)
+- [Dependencies and licenses](docs/third-party.md)
 
 ## License
 

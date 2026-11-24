@@ -93,8 +93,8 @@ terminal, use the directory containing its `session.json`:
 .\.venv\Scripts\python.exe examples/stream_to_wav.py --session-dir PATH --text "This standalone application streams audio." --voice af_heart --output output.wav
 ```
 
-The [example](../examples/stream_to_wav.py) uses only Python's standard library;
-it imports no engine or NordicRead modules.
+The [example](../examples/stream_to_wav.py) uses Python's standard library
+to receive the PCM stream and save it as a WAV file.
 
 ## Lifecycle and deployment scope
 

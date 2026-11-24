@@ -67,15 +67,12 @@ def build_engine(*, source_root, assets, distpath, workpath, specpath, notices, 
         shutil.copy2(path, destination)
     shutil.copy2(Path(__file__), source / 'build_speech_engine.py')
     shutil.copy2(source_root / 'LICENSE', output / 'LICENSE')
-    # This warning travels with a local build. Supplying the helper's own source
-    # and upstream links is not evidence of complete corresponding third-party
-    # source or of the proprietary UI's legal independence.
+    # Include source, license and build-record locations with the executable.
     (output / 'DISTRIBUTION-REVIEW.txt').write_text(
-        'Local development build. The GPL speech helper source is in source/.\n'
-        'Before public distribution, verify the exact corresponding source and\n'
-        'build materials for every GPL/LGPL binary and the licenses/notices of\n'
-        'all other dependencies. Review whether the combined distribution keeps\n'
-        'the programs legally independent. This file is not legal clearance.\n', encoding='utf-8')
+        'Speech engine source and build recipe: source/.\n'
+        'Engine license: LICENSE (GPL-3.0-or-later).\n'
+        'Dependency notices: _internal/notices/.\n'
+        'Source and native build records: source/docs/third-party.md.\n', encoding='utf-8')
     return output
 
 

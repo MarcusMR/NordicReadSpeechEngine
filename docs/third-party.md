@@ -1,12 +1,8 @@
-# Dependencies and source provenance
+# Dependencies
 
-The engine source is [GPL-3.0-or-later](../LICENSE). Dependencies keep their
-own copyrights, licenses and notice requirements. Versions are pinned in
-[requirements.txt](../requirements.txt); supplemental texts are kept under
-[notices/](../notices/README.md). Generated inventories belong in build output.
-
-This inventory records the current source and binary provenance. It does not
-constitute a complete corresponding-source package for a binary release.
+The engine source is [GPL-3.0-or-later](../LICENSE). Dependency versions are
+pinned in [requirements.txt](../requirements.txt). Their licenses and source
+references are listed below; supplemental texts are in [notices/](../notices/README.md).
 
 ## Recorded dependencies
 
@@ -22,53 +18,45 @@ constitute a complete corresponding-source package for a binary release.
 | num2words | 0.5.14 / LGPL | https://github.com/savoirfairelinux/num2words |
 | spaCy English model | 3.8.0 / model MIT, with source notices | https://github.com/explosion/spacy-models |
 
-## Native eSpeak provenance
+## Native eSpeak source
 
-The MIT license of `espeakng-loader` applies to its loader code; it does not
-replace the native eSpeak NG library's GPL license. The loader's 0.2.4 source
-revision is `146599e29be31bf17d99f0bcb7dbb2f92aef3d95`. Its upstream workflow builds
-eSpeak NG 1.52.0. The wrapper MIT text was added in later revision
-`0ddc87adf77e5850d7eeb542ac8a87d421b64daa`. The installed native library does not
-embed an exact source revision; mapping it to the eSpeak tag is supported by
-its reported runtime version and the loader workflow, not a reproducible-build
-proof of the exact binary.
+The loader's 0.2.4 source revision is `146599e29be31bf17d99f0bcb7dbb2f92aef3d95`.
+Its upstream workflow builds eSpeak NG 1.52.0. The loader's MIT license text
+was added in revision `0ddc87adf77e5850d7eeb542ac8a87d421b64daa`.
 
-### Source and build references
+The installed native DLL reports version 1.52.0 but does not embed an exact
+source revision. The recorded eSpeak tag is based on that version and the
+loader workflow; the exact binary-to-source mapping still needs confirmation.
 
 - Loader workflow: https://github.com/thewh1teagle/espeakng-loader/blob/146599e29be31bf17d99f0bcb7dbb2f92aef3d95/.github/workflows/build.yml
 - Loader native build script: https://github.com/thewh1teagle/espeakng-loader/blob/146599e29be31bf17d99f0bcb7dbb2f92aef3d95/build.sh
 - eSpeak source archive: https://github.com/espeak-ng/espeak-ng/archive/4870adfa25b1a32b4361592f1be8a40337c58d6c.tar.gz
 
-## Before distributing binaries
+## Binary build records
 
-Before public distribution, verify exact sources and build scripts for the
-distributed binaries, retain all applicable dependency notices, and provide the
-required corresponding-source access using an applicable license mechanism.
-Include this engine's own source and build instructions, and document any changes.
-A set of upstream links alone is not a claim that corresponding-source duties
-are satisfied. The precise source of the forked phonemizer distribution and
-native build provenance still need confirmation against the final binaries.
+Record the dependency versions, license texts, source archives and build scripts
+used for each binary release. Keep the engine source and build recipe with the
+package, and retain the notices from the installed dependency metadata.
 
-The installed dependency metadata contains additional licenses for Python,
-PyTorch and its native dependencies, Transformers, spaCy, NumPy and other
-packages. The model card contains training-data acknowledgements. Packaging
-must preserve the notices relevant to the actual shipped files; this table is
-not a replacement for that inventory. The OCR/Tesseract bundle belongs to the
-reader application's separate packaging review and is not included in this engine.
+Two source records remain to be confirmed against the shipped dependencies:
 
-## Source origin
+- The exact source of the `phonemizer-fork` distribution.
+- The native eSpeak binary's source revision and build provenance.
 
-Initial source snapshot: the `speech_engine/` component and independent
-`build/build_speech_engine.py` recipe at source revision `1af5baa3c7241dbf7970ebd96f46039f7a4502b1`.
+The table above covers the main speech components. Python, PyTorch,
+Transformers, spaCy, NumPy and their dependencies carry additional notices in
+their distribution metadata. Model acknowledgements are in the model card.
+Generated inventories and source archives belong in build output.
 
-This repository starts with fresh history. Reader UI, OCR, website, signing
-material, virtual environments, model files and binary build output were not
-copied. Existing GPL-3.0-or-later source licensing and supplemental notices
-were preserved. Importing the source does not change dependency licenses.
+## Source history
 
-The initial standalone adaptation adjusts documentation and the build recipe
-to use this repository root, adds Git exclusions, and aligns the package's
-reported version with its existing `0.2.0` project metadata. Synthesis and API
-implementation are unchanged.
+The initial import came from the `speech_engine/` component and
+`build/build_speech_engine.py` at revision
+`1af5baa3c7241dbf7970ebd96f46039f7a4502b1`.
+
+The import starts fresh Git history. Documentation and build paths were adapted
+to this repository root, Git exclusions were added, and the reported version
+was aligned with the existing `0.2.0` project metadata. Synthesis and API behavior
+were retained.
 
 [Back to README](../README.md)
